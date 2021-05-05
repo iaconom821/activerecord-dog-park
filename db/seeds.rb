@@ -6,10 +6,10 @@ Visit.destroy_all
 ## Create 2 Park instances and 2 Dog instances below, using what you have in your schema
 ## Don't forget to uncomment after writing your code!
 
-# dog1 = CODE GOES HERE
-# dog2 = CODE GOES HERE
-# park1 = CODE GOES HERE
-# park2 = CODE GOES HERE
+dog1 = Dog.create(name: "Raffles", species: "African Wolf Dog")
+dog2 = Dog.create(name: "Bongo", species: "Shmope")
+park1 = Park.create(name: "elm", location: "wantagh")
+park2 = Park.create(name: "munson", location: "seaford")
 
 
 
@@ -19,13 +19,22 @@ Visit.destroy_all
 ## dog1 has visited park1 on Monday
 ## dog2 has visited park2 on Tuesday
 
+visit1 = Visit.create(day: "Monday", dog_id: dog1.id, park_id: park1.id)
+visit2 = Visit.create(day: "Tuesday", dog_id: dog2.id, park_id: park2.id)
+
+dog1.visits << visit1
+park1.visits << visit1
+
+dog2.visits << visit2
+dog2.visits << visit2
+
 
 
 
 
 ## Update the name of dog1 so its new name is "Fluffy" 
 
-
+dog1.update(name: "Fluffy")
 
 
 
@@ -33,7 +42,7 @@ Visit.destroy_all
 ## It should be an arrray of strings
 ## Don't forget to uncomment after writing your code!
 
-# all_the_park_names = CODE GOES HERE
+all_the_park_names = Park.all_names
 
 
 
@@ -43,7 +52,7 @@ Visit.destroy_all
 ## It should be an arrray of strings
 ## Don't forget to uncomment after writing your code!
 
-# all_the_parks_dog1_went_to = CODE GOES HERE
+all_the_parks_dog1_went_to = dog1.name_of_parks
 
 
 
@@ -52,14 +61,14 @@ Visit.destroy_all
 ## Delete park1 from the database
 
 
-
+park1.destroy
 
 
 ## Display all the visits that dog2 has, using `puts` 
 ## Each display should read as the following: 
 ## `On #{VISIT DAY}, I went to #{NAME OF PARK ASSOCIATED WITH THAT VISIT}.`
 
-
+dog2.visits.each { |visit| puts "On #{visit.day}, I went to #{visit.park.name}."}
 
 
 

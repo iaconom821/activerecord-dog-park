@@ -65,6 +65,8 @@ Add the necessary column(s) to the appropriate migration(s) to allow for the afo
 
 Answer Here: 
 
+When two classes need to be connected with a many to many relationship
+
 ```
 
 * What do the ActiveRecord Macros do for us?
@@ -72,5 +74,7 @@ Answer Here:
 ```txt
 
 Answer Here:
+
+create attributes, and give us a quick way to gat a lot of functionality for our classes which we can then use to associate to our database
 
 ```
